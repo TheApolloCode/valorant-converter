@@ -4,7 +4,6 @@ import { useState } from 'react';
 
 function Converter() {
   const [valoPoints, setValoPoints] = useState(1);
-  const minPoints = 475;
   const [selectedCurrency, setSelectedCurrency] = useState('euros');
 
   const handleInputChange = (event) => {
@@ -15,13 +14,15 @@ function Converter() {
   function convert(valoPoints:number, currency:string) {
     let convertedValue;
     let rate;
-    const minPoints=475;
 
     if (currency === 'lei') {
-      rate = 24.64 / minPoints;  
+      const minPoints=500;
+      rate = 24.99 / minPoints;  
     } else if (currency === 'dollars') {
+      const minPoints=475;
       rate = 4.99 / minPoints;
     }else if (currency === 'euros') {
+      const minPoints=475;
       rate = 4.99 / minPoints;
     }
 
