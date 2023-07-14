@@ -6,7 +6,7 @@ function Converter() {
   const [valoPoints, setValoPoints] = useState(1);
   const minPoints = 475;
   const [selectedCurrency, setSelectedCurrency] = useState('euros');
-  const [darkMode, setDarkMode] = useState(false);
+
 
   const handleInputChange = (event) => {
     const value = Math.max(0, parseInt(event.target.value) || 0);
