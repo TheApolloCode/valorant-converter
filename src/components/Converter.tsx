@@ -7,26 +7,25 @@ function Converter() {
   const minPoints = 475;
   const [selectedCurrency, setSelectedCurrency] = useState('euros');
 
-
   const handleInputChange = (event) => {
     const value = Math.max(0, parseInt(event.target.value) || 0);
     setValoPoints(value);
   };
 
-  function convert(valoPoints, currency) {
+  function convert(valoPoints:number, currency:string) {
     let convertedValue;
     let rate;
-    const minPoints = 475;
+    const minPoints=475;
 
     if (currency === 'lei') {
-      rate = 24.64 / minPoints;
+      rate = 24.64 / minPoints;  
     } else if (currency === 'dollars') {
       rate = 4.99 / minPoints;
-    } else if (currency === 'euros') {
+    }else if (currency === 'euros') {
       rate = 4.99 / minPoints;
     }
 
-    convertedValue = valoPoints * rate;
+    convertedValue=valoPoints*rate;
     return convertedValue.toFixed(2);
   }
 
@@ -34,19 +33,12 @@ function Converter() {
     setSelectedCurrency(event.target.value);
   };
 
-  const handleDarkModeToggle = () => {
-    setDarkMode(!darkMode);
-  };
-
   return (
     <>
-      <div
-        className={`position-absolute top-0 start-50 translate-middle-x ${
-          darkMode ? 'dark-mode' : ''
-        }`}
-      >
+      <div className="position-absolute top-0 start-50 translate-middle-x">
         <div className="text-center">
           <img src={logo} alt="valorant-logo" />
+          <h1>Valorant points:</h1>
           <input
             className="form-control"
             type="number"
@@ -67,6 +59,9 @@ function Converter() {
             <option value="lei">Lei</option>
             <option value="dollars">Dollars</option>
           </select>
+          <button type="button" className="btn btn-primary">
+            Convert
+          </button>
         </div>
         <h1>Value in {selectedCurrency}:{convert(valoPoints, selectedCurrency)}</h1>
       </div>
