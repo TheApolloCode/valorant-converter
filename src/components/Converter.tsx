@@ -36,7 +36,7 @@ function Converter() {
 
   return (
     <>
-      <div className="position-absolute top-0 start-50 translate-middle-x">
+      <div className="d-flex justify-content-center">
         <div className="text-center">
           <img src={logo} alt="valorant-logo" />
           <h1>Valorant points:</h1>
@@ -64,8 +64,8 @@ function Converter() {
             Convert
           </button>
         </div>
-        <h1>Value in {selectedCurrency}:{convert(valoPoints, selectedCurrency)}</h1>
       </div>
+       <h1 className="text-center">Value in {selectedCurrency}:{convert(valoPoints, selectedCurrency)}</h1>
     </>
   );
 }
